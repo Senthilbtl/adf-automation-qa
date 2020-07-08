@@ -1,0 +1,11 @@
+{  
+    "testUrl":"http://qaexercise.envalfresco.com/settings",
+    "loginUrl":"http://qaexercise.envalfresco.com/login",
+    "homeUrl":"http://qaexercise.envalfresco.com/home",
+    "filesUrl":"http://qaexercise.envalfresco.com/files",  
+    "usernameInput":"guest@example.com", 
+    "providerInput":"ECM",  
+    "passwordInput":"Password", 
+    "folderName":"Senthilbtl",
+    "emptyFolder":"This folder is empty"
+ }

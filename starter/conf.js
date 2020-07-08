@@ -1,5 +1,12 @@
 // conf.js
 
+let HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+
+let reporter = new HtmlScreenshotReporter({
+  dest: 'target/screenshots',
+  filename: 'test-report.html'
+});
+
 require("babel-register")({
   presets: [ 'es2015' ]
 });
@@ -44,5 +51,22 @@ exports.config = {
       // overrides jasmine's print method to report dot syntax for custom reports
       print: () => {},
       defaultTimeoutInterval: 50000
+  },
+
+  beforeLaunch: function() {
+    return new Promise(function(resolve){
+      reporter.beforeLaunch(resolve);
+    });
+  },
+
+  onPrepare: function() {
+    jasmine.getEnv().addReporter(reporter);
+  },
+
+  afterLaunch: function(exitCode) {
+    return new Promise(function(resolve){
+      reporter.afterLaunch(resolve.bind(this, exitCode));
+    });
   }
+  
 };
