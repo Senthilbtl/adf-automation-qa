@@ -1,22 +1,30 @@
 let loginpage = function(){
 
-    let usernameElement = element(by.id('username'));
-    let passwordElement = element(by.id('password'));
-    let signinButton = element(by.id('login-button'));
+    let txt_username = element(by.id('username'));
+    let txt_password = element(by.id('password'));
+    let btn_signin = element(by.id('login-button'));
 
     this.enterUsername = function(usrname){
 
-        usernameElement.clear();
-        usernameElement.sendKeys(usrname);
+        expect(txt_username.isDisplayed()).toBe(true);
+        txt_username.clear();
+        txt_username.sendKeys(usrname);
+
     };
 
     this.enterPassword = function(password){
-        passwordElement.clear();
-        passwordElement.sendKeys(password);
+
+        expect(txt_password.isDisplayed()).toBe(true);
+        txt_password.clear();
+        txt_password.sendKeys(password);
+
     };
 
     this.clickSignin = function(){
-        signinButton.click();
+
+        expect(btn_signin.isDisplayed()).toBe(true);
+        btn_signin.click();
+    
     };
 
 };

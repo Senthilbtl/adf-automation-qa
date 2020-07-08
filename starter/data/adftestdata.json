@@ -7,5 +7,6 @@
     "providerInput":"ECM",  
     "passwordInput":"Password", 
     "folderName":"Senthilbtl",
+    "errorMessage":"There's already a folder with this name. Try a different name.",
     "emptyFolder":"This folder is empty"
  }

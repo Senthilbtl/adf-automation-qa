@@ -1,10 +1,10 @@
 let settingsPage = function(){
 
-    let providerElement = element(by.tagName('span.mat-select-value-text > span'));
-    let selectECM = element(by.cssContainingText('mat-option .mat-option-text', 'ECM'));
-    let applyButton = element(by.id('host-button'));
-    let settingsButton = element(by.css('a[data-automation-id="settings"]'));
-    let selectedElement = element(by.css('.mat-select-value'));
+    let txt_provider = element(by.tagName('span.mat-select-value-text > span'));
+    let txt_selectECM = element(by.cssContainingText('mat-option .mat-option-text', 'ECM'));
+    let btn_apply = element(by.id('host-button'));
+    let btn_settings = element(by.css('a[data-automation-id="settings"]'));
+    let txt_selected = element(by.css('.mat-select-value'));
 
     this.openUrl = function(url){
         
@@ -20,26 +20,26 @@ let settingsPage = function(){
 
     this.selectProvider = function(){
      
-        expect(providerElement.isDisplayed()).toBe(true);
-        providerElement.click();
-        expect(selectECM.isDisplayed()).toBe(true);
-        selectECM.click();
+        expect(txt_provider.isDisplayed()).toBe(true);
+        txt_provider.click();
+        expect(txt_selectECM.isDisplayed()).toBe(true);
+        txt_selectECM.click();
 
 
     };
 
-    this.clickGo = function(){
+    this.clickApply = function(){
 
-        expect(applyButton.isDisplayed()).toBe(true);
-        applyButton.click();
+        expect(btn_apply.isDisplayed()).toBe(true);
+        btn_apply.click();
 
     };
 
     this.selectedSettings = function(value){
 
-        expect(settingsButton.isDisplayed()).toBe(true);
-        settingsButton.click();
-        expect(selectedElement.getText()).toBe(value);
+        expect(btn_settings.isDisplayed()).toBe(true);
+        btn_settings.click();
+        expect(txt_selected.getText()).toBe(value);
 
     };
 

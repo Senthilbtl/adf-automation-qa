@@ -9,8 +9,11 @@ let hpage = require('./pages/HomePage');
 let testData = require('./data/adftestdata.json');
 
 describe('ADF Demo App', function() {
+  
+ // Total 5 Automation tests written to cover all 21 steps given in README.md file
 
- it('adf_settings_test', function() {
+ // Step 1 to Step 3
+ it('adf_settings_test_1', function() {
 
     setpage.openUrl(testData.testUrl);
 
@@ -18,15 +21,16 @@ describe('ADF Demo App', function() {
 
     setpage.selectProvider();
     
-    setpage.clickGo();
+    setpage.clickApply();
 
     setpage.selectedSettings(testData.providerInput);
 
-    setpage.clickGo();
+    setpage.clickApply();
 
   });
 
-  it('adf_login_test', function() {
+  // Step 4
+  it('adf_login_test_2', function() {
 
     setpage.verifyUrl(testData.loginUrl);
 
@@ -38,7 +42,8 @@ describe('ADF Demo App', function() {
 
   });
 
-  it('adf_add_folder_test', function() {
+  // Step 5 to Step 11
+  it('adf_add_folder_test_3', function() {
 
     setpage.verifyUrl(testData.homeUrl);
 
@@ -46,31 +51,41 @@ describe('ADF Demo App', function() {
 
     setpage.verifyUrl(testData.filesUrl);
 
-    hpage.verifyEmptyFolder(testData.emptyFolder);
+    hpage.verifyEmptyFolder();
 
     hpage.clickNewFolder();
+
+    hpage.newFolderDialog();
 
     hpage.enterFolderName(testData.folderName);
 
     hpage.clickCreateFolder();
+
+    hpage.verifyAddedFolder(testData.folderName);
 
   });
 
-  it('adf_add_same_folder_test', function() {
+  // Step 12 to Step 18
+  it('adf_add_same_folder_test_4', function() {
 
     hpage.clickNewFolder();
+
+    hpage.newFolderDialog();
 
     hpage.enterFolderName(testData.folderName);
 
     hpage.clickCreateFolder();
 
-    hpage.verifyError();
+    hpage.verifyError(testData.errorMessage);
+
+    hpage.newFolderDialog();
 
     hpage.clickCancel();
 
   });
 
-  it('adf_delete_folder_test', function() {
+  // Step 19 to Step 21
+  it('adf_delete_folder_test_5', function() {
 
     hpage.clickFolderMenu();
 
